@@ -6,19 +6,52 @@ import java.util.List;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
 public class PageDriver {
 	
          public WebDriver driver;
-	
-	
-		//System.setProperty("webdriver.chrome.driver", "/Users/geetaagarwal/Documents/chromedriver");
+         Configuration configuration;
+ 		
+ 		
+     public PageDriver (Configuration config) {
+     	System.setProperty("webdriver.chrome.driver", "/Users/geetaagarwal/Documents/chromedriver");
+     	  this.driver = new ChromeDriver();
+ 		 this.configuration = config;
+ 	     startbrowser();
+       }	 
+ 	public void startbrowser() {
+ 		String browser = configuration.Browser;
+ 		
+ 		switch (browser){
+ 		
+ 		case "Firefox":
+ 			startFirefox();
+ 			break;
+ 		case "Chrome":
+ 			startChrome();
+ 			break;
+ 	    default:
+ 			startHTML();
+ 			break;
+ 		}
+ 		
+ 	}
+ 		public void startFirefox(){
+ 			
+ 			this.driver = new FirefoxDriver();
+ 	}
 
-		driver = new FireFoxDriver();
-	
-	
-	
+ 		public void startChrome(){
+ 			
+ 			this.driver = new ChromeDriver();
+ 	}
+
+ 		public void startHTML(){
+ 			
+ 			this.driver = new FirefoxDriver();
+ 	}
 	public void get(String url) {
 		
 		driver.get(url);

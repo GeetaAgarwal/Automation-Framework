@@ -29,7 +29,7 @@ public class HomePageTest extends BasePageTest{
 	public void clickWbl(){
 		String actual = hp.clickWbl();
 		
-		assertEquals("http://whitebox-learning.com/", actual);
+		assertEquals("", actual);
 		
 		
 	}

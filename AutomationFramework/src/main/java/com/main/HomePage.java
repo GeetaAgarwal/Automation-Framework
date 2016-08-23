@@ -17,7 +17,7 @@ public class HomePage extends BasePage {
 		
 	public void getUrl(){
 		
-		driver.get("http://whiteboxqa.com/");
+		driver.get("");
 	}
    
 	public int counticons() {
